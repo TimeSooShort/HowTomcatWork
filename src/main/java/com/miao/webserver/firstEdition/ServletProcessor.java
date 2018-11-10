@@ -1,11 +1,10 @@
-package com.miao.webserver;
+package com.miao.webserver.firstEdition;
 
-import com.sun.deploy.net.HttpResponse;
+import com.miao.webserver.util.Constants;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
