@@ -1,4 +1,4 @@
-package com.miao.webserver.connector.http;
+package com.miao.webserver.SecondEdition.connector;
 
 import org.apache.catalina.connector.http.HttpHeader;
 import org.apache.catalina.connector.http.HttpRequestLine;
@@ -19,7 +19,7 @@ public class HttpProcessor {
     private HttpRequestLine requesLine = new HttpRequestLine();
     private HttpResponse response;
 
-    protected StringManager sm = StringManager.getManager("com.miao.webserver.connector.http");
+    protected StringManager sm = StringManager.getManager("com.miao.webserver.SecondEdition.connector");
 
     public HttpProcessor(HttpConnector connector) {
         this.connector = connector;
@@ -44,6 +44,16 @@ public class HttpProcessor {
 
             parseRequest(input);
             parseHeaders(input);
+
+            if (request.getRequestURI().startsWith("/servlet/")) {
+                ServletProcessor processor = new ServletProcessor();
+                processor.process(request, response);
+            }
+            else {
+                StaticResourceProcessor processor = new StaticResourceProcessor();
+                processor.process(request, response);
+            }
+            socket.close();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ServletException e) {

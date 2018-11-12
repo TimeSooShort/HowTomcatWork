@@ -109,7 +109,7 @@ public class SocketInputStream extends InputStream {
      * The string manager for this package.
      */
     protected static StringManager sm =
-            StringManager.getManager(Constants.Package);
+            StringManager.getManager("org.apache.catalina.connector.http");
 
     // --------------------------------------------------------- Public Methods
 

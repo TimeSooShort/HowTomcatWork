@@ -1,6 +1,7 @@
 package com.miao.webserver.util;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
@@ -23,7 +24,7 @@ public class StringManager {
         // 例如一个包下有三个不同语言的properties文件，会选择哪一个？跟踪源码到Locale.getDefault()方法，注解中的解释是
         // The Java Virtual Machine sets the default locale during startup based on the host environment
         // 意思是会根据机器的语言环境来选择使用哪个文件
-        bundle = ResourceBundle.getBundle(bundleName);
+        bundle = ResourceBundle.getBundle("LocalStrings");
     }
 
     /**
